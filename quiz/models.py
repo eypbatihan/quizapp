@@ -40,7 +40,7 @@ class Quiz(models.Model):
 class Questions(models.Model):
   data_created = models.DateTimeField(auto_now_add=True)
   text = models.CharField(max_length=200)
-  quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
+  quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE,related_name="question")
 
   class Meta:
     verbose_name_plural = "Questions"
@@ -54,7 +54,7 @@ class Questions(models.Model):
 class Answer(models.Model):
   data_created = models.DateTimeField(auto_now_add =True)
   text = models.TextField(max_length=200)
-  question = models.ForeignKey(Questions,on_delete=models.CASCADE)
+  question = models.ForeignKey(Questions,on_delete=models.CASCADE,related_name="answer")
   is_correct = models.BooleanField(default=False)
 
   def __str__(self):
