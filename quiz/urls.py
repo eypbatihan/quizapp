@@ -1,7 +1,4 @@
 from django.urls import path
-
-from quiz.models import Questions
-
 from .views import Question, QuizQuestion, QuizView
 
 
